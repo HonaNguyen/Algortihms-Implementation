@@ -42,7 +42,6 @@ int N,K;
 ll x[maxn+5];
 ll dp[101][maxn+5];
 /// Divide And Conqueror Optimization
-/// dp[k][i] = min(dp[k-1][j-1] + Cost(j,i)) 0 <= k <= j
 /// cost of segment (i,j]
 long long Cost(int i,int j){
     return (x[j] - x[i]) * (x[j] - x[i]);
@@ -81,3 +80,8 @@ int main(){
 //    cin >> tc;
     while(tc--) solve();
 }
+
+/*
+    https://cp-algorithms.com/dynamic_programming/divide-and-conquer-dp.html
+    We have to minimize /// dp[k][i] = min(dp[k-1][j-1] + Cost(j,i)) 0 <= k <= j
+*/
