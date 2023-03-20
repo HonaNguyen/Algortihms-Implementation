@@ -83,5 +83,5 @@ int main(){
 
 /*
     https://cp-algorithms.com/dynamic_programming/divide-and-conquer-dp.html
-    We have to minimize /// dp[k][i] = min(dp[k-1][j-1] + Cost(j,i)) 0 <= k <= j
+    We have to minimize /// dp[k][i] = min(dp[k-1][j-1] + Cost(j,i)) 0 <= k <= j.
 */
