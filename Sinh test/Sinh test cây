@@ -1,0 +1,60 @@
+#include<bits/stdc++.h>
+using namespace std;
+auto seed = chrono::high_resolution_clock::now().time_since_epoch().count();
+std::mt19937 mt(seed);
+int Rand(int x,int y){
+    if(x == y) return x;
+    int tmp = y - x + 1;
+    return mt() % tmp + x;
+}
+vector<pair<int,int>> Generate_tree(int n){
+    vector<pair<int,int>> G;
+    for(int i=2;i<=n;i++){
+        int u = Rand(1,i-1);
+        G.push_back({i,u});
+    }
+    return G;
+}
+int main(){
+    freopen("sol.inp","w",stdout);
+    srand(time(0));
+    int n = Rand(1e5,1e5);
+    int k = Rand(1e5,1e5);
+    cout << n << " " << k << endl;
+    vector<int> G;
+    set<int> Set;
+    for(int i=1;i<=n;i++){
+        while(true){
+            int x = Rand(1,1e9);
+            if(Set.find(x) == Set.end()){
+                Set.insert(x);
+                G.push_back(x);
+                break;
+            }
+        }
+    }
+    sort(G.begin(),G.end());
+    for(int u : G) cout << u << " ";
+//    int n = Rand(1,1e5);
+//    int q = Rand(1,1e5);
+//    cout << n << " " << q << endl;
+//    vector<pair<int,int>> listOfEdges = Generate_tree(n);
+//    vector<int> label(n+1);
+//    for(int i=1;i<=n;i++) label[i] = i;
+//    random_shuffle(label.begin()+1,label.end());
+//    for(pair<int,int> u: listOfEdges){
+//        cout << label[u.first] << " " << label[u.second] << " ";
+//        int tmp = Rand(1,1e9);
+//        cout << tmp << endl;
+//    }
+//    for(int i=1;i<=q;i++){
+//        int L,R;
+//        R = Rand(1,1e9);
+//        L = Rand(1,R);
+//        cout << L << " " << R << endl;
+//    }
+}
+
+
+
+
